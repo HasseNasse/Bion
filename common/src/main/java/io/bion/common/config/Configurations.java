@@ -6,46 +6,19 @@ package io.bion.common.config;
  * @author Hassan Nazar
  * @author www.hassannazar.net
  */
-public class Configurations {
+public enum Configurations {
+    HTTP_PORT("server.config.http.port"),
+    HTTPS_PORT("server.config.https.port"),
+    IO_THREADS("server.config.io.thread.count"),
+    BUFFER_SIZE("server.config.buffer.size");
 
-    /*CONFIG_ORDINAL*/
-    public static final Config<Short> CONFIG_ORDINAL = new Config<>("server.config.ordinal",
-            Configurations::loadConfigOrdinal);
+    String key;
 
-    private static short loadConfigOrdinal () {
-        return 100;
+    public String getKey () {
+        return key;
     }
 
-    /*HTTP_PORT*/
-    public static final Config<Short> HTTP_PORT = new Config<>("server.config.http.port",
-            Configurations::loadHttpPortConfig);
-
-    private static short loadHttpPortConfig () {
-        return 8080;
+    Configurations (final String key) {
+        this.key = key;
     }
-
-    /*HTTPS_PORT*/
-    public static final Config<Short> HTTPS_PORT = new Config<>("server.config.https.port",
-            Configurations::loadHttpsPortConfig);
-
-    private static short loadHttpsPortConfig () {
-        return 8084;
-    }
-
-    /*IO_THREADS*/
-    public static final Config<Byte> IO_THREADS = new Config<>("server.config.thread.count",
-            Configurations::loadIoThreadsConfig);
-
-    private static byte loadIoThreadsConfig () {
-        return 10;
-    }
-
-    /*BUFFER_SIZE*/
-    public static final Config<Byte> BUFFER_SIZE = new Config<>("server.config.buffer.size",
-            Configurations::loadBufferSizeConfig);
-
-    private static byte loadBufferSizeConfig () {
-        return 10;
-    }
-
 }

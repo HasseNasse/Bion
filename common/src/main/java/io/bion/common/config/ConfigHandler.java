@@ -1,5 +1,11 @@
 package io.bion.common.config;
 
+import io.bion.common.config.loader.EnvironmentConfigurationLoader;
+import io.bion.common.config.loader.FileConfigurationLoader;
+import io.bion.common.config.loader.SystemConfigurationLoader;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -8,46 +14,126 @@ import java.util.Optional;
  * @author Hassan Nazar
  * @author www.hassannazar.net
  */
-public enum ConfigHandler implements IConfigHandler {
+public enum ConfigHandler implements ConfigurationAccessor {
     INSTANCE;
 
-    @Override
-    public Optional<Byte> getByte (final Config<Byte> config) {
-        return Optional.ofNullable(config.getValue());
+    private final List<ConfigurationAccessor> loaders;
+
+    ConfigHandler () {
+        // Initialize our loader list
+        loaders = new ArrayList<>();
+
+        // Bring in all loaders
+        final var environmentLoader = EnvironmentConfigurationLoader.INSTANCE;
+        final var systemLoader = SystemConfigurationLoader.INSTANCE;
+        final var fileLoader = FileConfigurationLoader.INSTANCE;
+
+        loaders.add(systemLoader);
+        loaders.add(environmentLoader);
+        loaders.add(fileLoader);
     }
 
     @Override
-    public Optional<Short> getShort (final Config<Short> config) {
-        return Optional.ofNullable(config.getValue());
+    public Optional<Byte> getByte (final String key) {
+        for (final ConfigurationAccessor loader : loaders) {
+            final var value = loader.getByte(key);
+
+            if (value.isPresent()) {
+                return value;
+            }
+        }
+
+        return Optional.empty();
     }
 
     @Override
-    public Optional<Long> getLong (final Config<Long> config) {
-        return Optional.ofNullable(config.getValue());
+    public Optional<Short> getShort (final String key) {
+        for (final ConfigurationAccessor loader : loaders) {
+            final var value = loader.getShort(key);
+
+            if (value.isPresent()) {
+                return value;
+            }
+        }
+
+        return Optional.empty();
     }
 
     @Override
-    public Optional<Double> getDouble (final Config<Double> config) {
-        return Optional.ofNullable(config.getValue());
+    public Optional<Integer> getInteger (final String key) {
+        for (final ConfigurationAccessor loader : loaders) {
+            final var value = loader.getInteger(key);
+
+            if (value.isPresent()) {
+                return value;
+            }
+        }
+
+        return Optional.empty();
     }
 
     @Override
-    public Optional<Float> getFloat (final Config<Float> config) {
-        return Optional.ofNullable(config.getValue());
+    public Optional<Boolean> getBoolean (final String key) {
+        for (final ConfigurationAccessor loader : loaders) {
+            final var value = loader.getBoolean(key);
+
+            if (value.isPresent()) {
+                return value;
+            }
+        }
+
+        return Optional.empty();
     }
 
     @Override
-    public Optional<Integer> getInteger (final Config<Integer> config) {
-        return Optional.ofNullable(config.getValue());
+    public Optional<Long> getLong (final String key) {
+        for (final ConfigurationAccessor loader : loaders) {
+            final var value = loader.getLong(key);
+
+            if (value.isPresent()) {
+                return value;
+            }
+        }
+
+        return Optional.empty();
     }
 
     @Override
-    public Optional<Boolean> getBoolean (final Config<Boolean> config) {
-        return Optional.ofNullable(config.getValue());
+    public Optional<Double> getDouble (final String key) {
+        for (final ConfigurationAccessor loader : loaders) {
+            final var value = loader.getDouble(key);
+
+            if (value.isPresent()) {
+                return value;
+            }
+        }
+
+        return Optional.empty();
     }
 
     @Override
-    public Optional<String> get (final Config<String> config) {
-        return Optional.ofNullable(config.getValue());
+    public Optional<Float> getFloat (final String key) {
+        for (final ConfigurationAccessor loader : loaders) {
+            final var value = loader.getFloat(key);
+
+            if (value.isPresent()) {
+                return value;
+            }
+        }
+
+        return Optional.empty();
+    }
+
+    @Override
+    public Optional<String> get (final String key) {
+        for (final ConfigurationAccessor loader : loaders) {
+            final var value = loader.get(key);
+
+            if (value.isPresent()) {
+                return value;
+            }
+        }
+
+        return Optional.empty();
     }
 }
