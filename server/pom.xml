@@ -5,32 +5,44 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>net.hassannazar.neomirage</groupId>
+        <groupId>io.neomirage</groupId>
         <artifactId>neomirage</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>server</artifactId>
+    <artifactId>neomirage-server</artifactId>
     <name>NeoMirage :: Server</name>
     <description>Module defining server functionality and plumbing</description>
 
     <properties>
-        <jetty-server.version>9.4.25.v20191220</jetty-server.version>
         <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <undertow.version>2.0.26.Final</undertow.version>
     </properties>
 
     <dependencies>
+        <!--inter-project dependencies-->
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>${jetty-server.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.hassannazar.neomirage</groupId>
-            <artifactId>common</artifactId>
+            <groupId>io.neomirage</groupId>
+            <artifactId>neomirage-common</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-core</artifactId>
+            <version>${undertow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-servlet</artifactId>
+            <version>${undertow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-websockets-jsr</artifactId>
+            <version>${undertow.version}</version>
         </dependency>
     </dependencies>
 
@@ -48,7 +60,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>net.hassannazar.neomirage.server.Bootstrap</mainClass>
+                    <mainClass>io.neomirage.server.Bootstrap</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>net.hassannazar.neomirage</groupId>
+        <groupId>io.neomirage</groupId>
         <artifactId>neomirage</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>common</artifactId>
+    <artifactId>neomirage-common</artifactId>
     <name>NeoMirage :: Common</name>
     <description>Module containing commonly used components</description>
 

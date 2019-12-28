@@ -1,3 +1,3 @@
 module neomirage.common {
-    exports net.hassannazar.neomirage.common;
+    exports io.neomirage.common.config;
 }

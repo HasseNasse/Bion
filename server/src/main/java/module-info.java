@@ -1,4 +1,6 @@
 module neomirage.server {
     requires neomirage.common;
-    requires org.eclipse.jetty.server;
+    requires undertow.core;
+    requires undertow.servlet;
+    requires undertow.websockets.jsr;
 }
