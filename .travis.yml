@@ -1,5 +1,5 @@
 language: java
 jdk:
-    - oraclejdk11
+  - openjdk13
 script:
-    - ./mvnw clean install
+  - ./mvnw clean install
