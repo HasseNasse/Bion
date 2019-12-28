@@ -1,5 +1,5 @@
-![Logo](./docs/image.png)
-[![Build Status](https://travis-ci.org/HasseNasse/neomirage.svg?branch=master)](https://travis-ci.org/HasseNasse/neomirage)  
+![Logo](./docs/logo.png)
+[![Build Status](https://travis-ci.org/HasseNasse/bion.svg?branch=master)](https://travis-ci.org/HasseNasse/bion)  
 "something illusory and unattainable"
 
 # Architectural Decisions:
