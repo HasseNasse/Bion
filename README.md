@@ -1,6 +1,6 @@
 ![Logo](./docs/logo.png)
 [![Build Status](https://travis-ci.org/HasseNasse/bion.svg?branch=master)](https://travis-ci.org/HasseNasse/bion)  
-"something illusory and unattainable"
+"flourished; to be in a vigorous state;"
 
 # Architectural Decisions:
 ## Server Configuration Management 
