@@ -1,3 +1,3 @@
-module neomirage.common {
-    exports io.neomirage.common.config;
+module bion.common {
+    exports io.bion.common.config;
 }

@@ -5,12 +5,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.neomirage</groupId>
-    <artifactId>neomirage</artifactId>
+    <groupId>io.bion</groupId>
+    <artifactId>bion</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>NeoMirage :: Aggregator</name>
+    <name>Bion :: Aggregator</name>
     <description>Aggregator module for server components</description>
 
     <properties>

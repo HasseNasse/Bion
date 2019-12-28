@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.neomirage</groupId>
-        <artifactId>neomirage</artifactId>
+        <groupId>io.bion</groupId>
+        <artifactId>bion</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>neomirage-server</artifactId>
-    <name>NeoMirage :: Server</name>
+    <artifactId>bion-server</artifactId>
+    <name>Bion :: Server</name>
     <description>Module defining server functionality and plumbing</description>
 
     <properties>
@@ -23,8 +23,8 @@
     <dependencies>
         <!--inter-project dependencies-->
         <dependency>
-            <groupId>io.neomirage</groupId>
-            <artifactId>neomirage-common</artifactId>
+            <groupId>io.bion</groupId>
+            <artifactId>bion-common</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
         </dependency>
@@ -60,7 +60,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>io.neomirage.server.Bootstrap</mainClass>
+                    <mainClass>io.bion.server.Bootstrap</mainClass>
                 </configuration>
             </plugin>
         </plugins>

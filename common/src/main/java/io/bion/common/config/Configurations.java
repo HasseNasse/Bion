@@ -1,4 +1,4 @@
-package io.neomirage.common.config;
+package io.bion.common.config;
 
 /**
  * Purpose:

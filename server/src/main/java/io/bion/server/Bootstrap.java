@@ -1,8 +1,8 @@
-package io.neomirage.server;
+package io.bion.server;
 
 
-import io.neomirage.common.config.ConfigHandler;
-import io.neomirage.common.config.Configurations;
+import io.bion.common.config.ConfigHandler;
+import io.bion.common.config.Configurations;
 import io.undertow.Undertow;
 
 import javax.net.ssl.SSLContext;
