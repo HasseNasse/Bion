@@ -1,6 +1,7 @@
 ![Logo](./docs/logo.png)
 [![Build Status](https://travis-ci.org/HasseNasse/bion.svg?branch=master)](https://travis-ci.org/HasseNasse/bion)  
-"flourished; to be in a vigorous state;"
+**"flourished;"** -Greek pastoral poet.  
+**"The bound state of two solitons(self-reinforcing wave packet that maintains its shape while it propagates at a constant velocity) is known as a bion"** - [Wikipedia](https://en.wikipedia.org/wiki/Soliton#Bions)
 
 # Architectural Decisions:
 ## Server Configuration Management 
