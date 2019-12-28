@@ -4,10 +4,7 @@
 
 # Architectural Decisions:
 ## Server Configuration Management 
-
-<details>
-  <summary>Server Configuration Management </summary>
-  ```  
+  ```yaml
   sequenceDiagram  
       participant Bootstrap  
       participant ConfigHandler  
@@ -33,5 +30,3 @@
       Config-->>ConfigHandler: value
       ConfigHandler-->>Bootstrap: value
   ```
-
-</details>  
