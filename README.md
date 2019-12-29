@@ -7,27 +7,31 @@
 ## Server Configuration Management 
   ```yaml
   sequenceDiagram  
-      participant Bootstrap  
-      participant ConfigHandler  
-      participant ConfigBank  
-      participant Config  
-      participant FileConfigLoader  
-      participant EnvConfigLoader  
-      participant SystemConfigLoader
+    participant Bootstrap  
+    participant ConfigHandler  
+    participant ConfigBank  
+    participant Config  
+    participant FileConfigLoader  
+    participant EnvConfigLoader  
+    participant SystemConfigLoader
 
-      ConfigBank->>Config: new Config(supplier)
-      Config-->>ConfigBank: config
-      Bootstrap->>ConfigHandler: get(ConfigBank.myConfig)
-      ConfigHandler->>Config: getValue()
-      Config->>ConfigBank: ConfigBank.ORDINAL.getValue()
-      ConfigBank-->>Config: 100 | 300 | 500
-      Config->>FileConfigLoader: get(String key)
-      FileConfigLoader-->>Config: Optional.of(x)
-      Config->>EnvConfigLoader: get(String key)
-      EnvConfigLoader-->>Config: Optional.of(x)
-      Config->>SystemConfigLoader: get(String key)
-      SystemConfigLoader-->>Config: Optional.of(x)
-      Config->>Config: setValue(x)
-      Config-->>ConfigHandler: value
-      ConfigHandler-->>Bootstrap: value
+    Note right of SystemConfigLoader: Ordinal = 400
+    Note right of EnvConfigLoader: Ordinal = 300
+    Note right of FileConfigLoader: Ordinal = 100
+    ConfigHandler->>SystemConfigLoader: SystemConfigLoader.INSTANCE
+    SystemConfigLoader-->>ConfigHandler: that
+    ConfigHandler->>EnvConfigLoader: EnvConfigLoader.INSTANCE
+    EnvConfigLoader-->>ConfigHandler: that
+    ConfigHandler->>FileConfigLoader: FileConfigLoader.INSTANCE
+    FileConfigLoader-->>ConfigHandler: that
+    Bootstrap->>ConfigHandler: get(String key)
+    loop every loader until value is found
+      ConfigHandler->>SystemConfigLoader: get(String key)
+      SystemConfigLoader-->>ConfigHandler: Optional<?> value
+      ConfigHandler->>EnvConfigLoader: get(String key)
+      EnvConfigLoader-->>ConfigHandler: Optional<?> value
+      ConfigHandler->>FileConfigLoader: get(String key)
+      FileConfigLoader-->>ConfigHandler: Optional<?> value
+    end
+    ConfigHandler-->>Bootstrap: Optional<?> value
   ```
