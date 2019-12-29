@@ -1,1 +1,3 @@
 theme: jekyll-theme-cayman
+colors:
+- '#FF5E3A, #FF2A68, #FFAE9B'
