@@ -17,7 +17,7 @@
 
     <properties>
         <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <undertow.version>2.0.26.Final</undertow.version>
+        <undertow.version>2.2.19.Final</undertow.version>
     </properties>
 
     <dependencies>
